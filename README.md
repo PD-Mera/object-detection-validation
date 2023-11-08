@@ -10,6 +10,8 @@ pip install -r requirements.txt
 
 ## Models
 
+### YOLO Format
+
 Model in onnx format, with input is an image with pixel values from [0, 1], outputs with shape `[batch_size, anchors, 4 + num_classes + 1]`
 
 Example 1 line in outputs is
@@ -17,6 +19,20 @@ Example 1 line in outputs is
 ``` bash
 # Format is [x_center, y_center, w, h, obj_conf, class_1_conf, class_2_conf]
 [0.51 0.75 0.21 0.19 0.85 0.1 0.9]
+```
+
+### Retina Format
+
+Model in onnx format, with input is an image read from `cv2.imread`, 3 outputs are `scores`, `bboxes` and `landmarks`
+
+Example 1 line in outputs is
+
+``` bash
+# bboxes
+[ 0.67413944  1.0143973  -1.1417826   0.16699778]
+# scores
+[9.9962950e-01 3.7046883e-04]
+# landmarks
 ```
 
 ## Prepare labels
@@ -57,3 +73,4 @@ python evaluate.py -gt ../__testset__/TCB-VJA-testset_1/all/labels \
 ## References
 
 - https://github.com/Cartucho/mAP
+- https://github.com/ppogg/Retinaface_Ghost
