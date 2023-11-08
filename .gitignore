@@ -1,0 +1,10 @@
+*.onnx
+
+output/
+output_labels/
+weights/*
+venv/
+
+tmp.py
+
+!.gitkeep
