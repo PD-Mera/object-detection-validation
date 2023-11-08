@@ -557,10 +557,6 @@ class RetinaPredictor(RetinaBasePredictor):
             self.ort_session.get_inputs()[0].name: np.dtype('float32').type(inputs),
         }
         ort_outputs = self.ort_session.run(None, ort_inputs)
-        print(ort_outputs[0][0][0])
-        print(ort_outputs[1][0][0])
-        print(ort_outputs[2][0][0])
-        exit()
         outputs = self.postprocess(ort_outputs)
         if visualize is not None:
             self._visualize(inputs_cv, outputs, h_scale, w_scale, save_path = visualize)
