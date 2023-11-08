@@ -41,7 +41,8 @@ To get predict of model, modify path in `predict.py` and run
 python predict.py --onnx ./weights/yolov5m_v0_0_1.onnx \
                   --image_dir ../__testset__/TCB-VJA-testset_1/all/images \
                   --save_txt ./output_labels \
-                  --gpu            
+                  --backend yolo \
+                  --gpu
 ```
 
 To get evaluation value such as `mAP`, run
